@@ -14,7 +14,10 @@ const NavBar = () => {
   return (
     <div className="flex justify-between p-5 items-center">
       {user && (
-        <h1>
+        <h1
+          className="font-lg font-semibold text-slate-900"
+          style={{ fontFamily: "Inter" }}
+        >
           {user.firstName}
           {`'s Space`}
         </h1>
