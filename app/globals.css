@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif, Arial, Helvetica;
 }
 
 @layer base {
@@ -69,4 +69,21 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary));
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: hsl(var(--background));
+  border-radius: 6px;
+}
+::selection{
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }

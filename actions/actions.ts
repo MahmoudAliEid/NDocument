@@ -2,6 +2,7 @@
 // create server actions
 
 import { adminDb } from "@/firebase-admin";
+import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
 
 export const createNewDocument = async () => {
@@ -31,4 +32,68 @@ export const createNewDocument = async () => {
     throw new Error("User email is undefined");
   }
   return { docId: newDocRef.id };
+};
+
+export const deleteDocument = async (roomId: string) => {
+  // ** check if user is authenticated
+  auth.protect();
+
+  try {
+    // ** delete document
+    const docRef = adminDb.collection("documents").doc(roomId);
+    await docRef.delete();
+
+    // ** delete all rooms associated with user's collection for  ever user in the room
+    const roomRef = await adminDb
+      .collectionGroup("rooms")
+      .where("roomId", "==", roomId)
+      .get();
+    const batch = adminDb.batch();
+    roomRef.docs.forEach((doc) => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
+
+    await liveblocks.deleteRoom(roomId);
+
+    return { success: true };
+  } catch (e) {
+    console.error(e);
+    return { success: false };
+  }
+};
+
+export const inviteUser = async (roomId: string, email: string) => {
+  // ** check if user is authenticated
+  auth.protect();
+
+  try {
+    // ** check if user is already invited
+    const roomRef = await adminDb
+      .collection("rooms")
+      .where("roomId", "==", roomId)
+      .where("userId", "==", email)
+      .get();
+    if (!roomRef.empty) {
+      return { success: false, message: "User is already invited" };
+    }
+
+    // ** invite user
+    await adminDb
+      .collection("users")
+      .doc(email)
+      .collection("rooms")
+      .doc(roomId)
+      .set({
+        roomId,
+        userId: email,
+        role: "editor",
+        createdAt: new Date(),
+      });
+
+    return { success: true };
+  } catch (e) {
+    console.error(e);
+    return { success: false };
+  }
 };

@@ -13,7 +13,7 @@ const NewDocumentButton = () => {
       const { docId } = await createNewDocument();
       if (docId) {
         // navigate to the new document
-        Router.push(`/doc/${docId}`);
+        Router.replace(`/doc/${docId}`);
       }
     });
   };

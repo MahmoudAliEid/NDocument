@@ -2,6 +2,7 @@
 import { MenuIcon } from "lucide-react";
 import NewDocumentButton from "./NewDocumentButton";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useUser } from "@clerk/nextjs";
 
 import {
   Sheet,
@@ -10,7 +11,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useUser } from "@clerk/nextjs";
 import {
   collectionGroup,
   DocumentData,
@@ -122,13 +122,22 @@ const SideBar = () => {
     </>
   );
   return (
-    <div className="relative p-2 md:p-5 bg-slate-200">
-      <div className="md:hidden">
+    <div
+      className="relative p-2 md:p-5 bg-slate-200 
+    "
+    >
+      <div className="md:hidden ">
         <Sheet>
           <SheetTrigger>
             <MenuIcon className="rounded-lg hover:opacity-30 p-2" size={40} />
           </SheetTrigger>
-          <SheetContent side={"left"}>
+          <SheetContent
+            side={"left"}
+            style={{
+              overflow: "visible",
+              overflowY: "auto",
+            }}
+          >
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
               <div>{menuOptions}</div>
@@ -136,7 +145,13 @@ const SideBar = () => {
           </SheetContent>
         </Sheet>
       </div>
-      <div className="md:inline hidden">{menuOptions}</div>
+      <div
+        className="md:inline hidden 
+
+      "
+      >
+        {menuOptions}
+      </div>
     </div>
   );
 };

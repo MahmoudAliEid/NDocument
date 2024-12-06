@@ -7,22 +7,23 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import React from "react";
+import Breadcrumbs from "./Breadcrumbs";
 
 const NavBar = () => {
   const { user } = useUser();
 
   return (
-    <div className="flex justify-between p-5 items-center">
+    <div className="flex justify-between p-3 h-14 items-center">
       {user && (
         <h1
-          className="font-lg font-semibold text-slate-900"
+          className="font-md font-semibold text-slate-900"
           style={{ fontFamily: "Inter" }}
         >
           {user.firstName}
           {`'s Space`}
         </h1>
       )}
-      {/* breadcrumbs */}
+      <Breadcrumbs />
       <div>
         <SignedOut>
           <SignInButton />
