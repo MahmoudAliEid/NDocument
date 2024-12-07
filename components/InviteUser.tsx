@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
-
 import { Notify } from "@/lib/utils";
 import { inviteUser } from "@/actions/actions";
 import { Input } from "./ui/input";

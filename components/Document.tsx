@@ -9,6 +9,8 @@ import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
+import Avatars from "./Avatars";
 
 const Document = ({ id }: { id: string }) => {
   const [title, setTitle] = useState("");
@@ -54,10 +56,14 @@ const Document = ({ id }: { id: string }) => {
               <DeleteDocument />
             </>
           )}
-          {/* management users */}
-
-          {/* avatars */}
         </div>
+      </div>
+      <div className="flex max-w-6xl mx-auto items-center mb-5 justify-between">
+        {/* management users */}
+        <ManageUsers />
+
+        {/* avatars */}
+        <Avatars />
       </div>
       <hr className="pb-10" />
       {/* collaborative editor  */}

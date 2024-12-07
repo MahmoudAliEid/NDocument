@@ -69,14 +69,14 @@ export const inviteUser = async (roomId: string, email: string) => {
 
   try {
     // ** check if user is already invited
-    const roomRef = await adminDb
-      .collection("rooms")
-      .where("roomId", "==", roomId)
-      .where("userId", "==", email)
-      .get();
-    if (!roomRef.empty) {
-      return { success: false, message: "User is already invited" };
-    }
+    // const roomRef = await adminDb
+    //   .collection("rooms")
+    //   .where("roomId", "==", roomId)
+    //   .where("userId", "==", email)
+    //   .get();
+    // if (!roomRef.empty) {
+    //   return { success: false, message: "User is already invited" };
+    // }
 
     // ** invite user
     await adminDb
@@ -90,6 +90,25 @@ export const inviteUser = async (roomId: string, email: string) => {
         role: "editor",
         createdAt: new Date(),
       });
+
+    return { success: true };
+  } catch (e) {
+    console.error(e);
+    return { success: false };
+  }
+};
+export const deleteUserFromRoom = async (roomId: string, email: string) => {
+  // ** check if user is authenticated
+  auth.protect();
+
+  try {
+    // ** delete user from room
+    await adminDb
+      .collection("users")
+      .doc(email)
+      .collection("rooms")
+      .doc(roomId)
+      .delete();
 
     return { success: true };
   } catch (e) {

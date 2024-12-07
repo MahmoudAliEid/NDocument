@@ -20,8 +20,8 @@ import {
 import { db } from "@/firebase";
 import { useEffect, useState } from "react";
 import SideBarOptions from "./SideBarOptions";
-import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/image";
+// import Link from "next/link";
 
 interface RoomDocument extends DocumentData {
   roomId: string;
@@ -125,7 +125,7 @@ const SideBar = () => {
   );
   return (
     <>
-      <div className="relative p-2 md:p-5 bg-slate-200 ">
+      <div className="relative p-2 md:p-5 bg-slate-200  ">
         <div className="md:hidden ">
           <Sheet>
             <SheetTrigger>
@@ -146,7 +146,7 @@ const SideBar = () => {
           </Sheet>
         </div>
         <div className="md:inline hidden">{menuOptions}</div>
-        <div
+        {/* <div
           className="mt-5 flex flex-col md:max-w-36 space-y-4 p-4
         absolute bottom-0 left-0 right-0
         "
@@ -174,7 +174,7 @@ const SideBar = () => {
               Mahmoud Ali
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
