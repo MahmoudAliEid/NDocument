@@ -62,7 +62,7 @@ const InviteUser = () => {
               onChange={(e) => setEmail(e.target.value)}
               className={"w-full"}
             />
-            <Button type="submit" className="" disabled={isPending || !email}>
+            <Button type="submit" disabled={isPending || !email}>
               {isPending ? "Inviting..." : "Invite"}
             </Button>
           </form>
