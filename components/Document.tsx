@@ -8,6 +8,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
+import InviteUser from "./InviteUser";
 
 const Document = ({ id }: { id: string }) => {
   const [title, setTitle] = useState("");
@@ -48,10 +49,10 @@ const Document = ({ id }: { id: string }) => {
         <div className="py-1 flex ml-1 space-x-2">
           {/* ifOwner && InviteUser , Delete document */}
           {isOwner && (
-            // <div className="flex-1 space-x-2">
-            //   {/* <Button className="py-3">Invite User</Button> */}
-            // </div>
-            <DeleteDocument />
+            <>
+              <InviteUser />
+              <DeleteDocument />
+            </>
           )}
           {/* management users */}
 

@@ -31,7 +31,7 @@ const InviteUser = () => {
         setOpen(false);
         setEmail("");
         Notify({
-          message: "User has been invited successfully",
+          message: "User invited successfully",
           type: "success",
         });
       } else {
@@ -62,11 +62,7 @@ const InviteUser = () => {
               onChange={(e) => setEmail(e.target.value)}
               className={"w-full"}
             />
-            <Button
-              type="submit"
-              className="mt-4"
-              disabled={isPending || !email}
-            >
+            <Button type="submit" className="" disabled={isPending || !email}>
               {isPending ? "Inviting..." : "Invite"}
             </Button>
           </form>
