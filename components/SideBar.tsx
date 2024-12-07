@@ -20,6 +20,8 @@ import {
 import { db } from "@/firebase";
 import { useEffect, useState } from "react";
 import SideBarOptions from "./SideBarOptions";
+import Image from "next/image";
+import Link from "next/link";
 
 interface RoomDocument extends DocumentData {
   roomId: string;
@@ -122,37 +124,59 @@ const SideBar = () => {
     </>
   );
   return (
-    <div
-      className="relative p-2 md:p-5 bg-slate-200 
-    "
-    >
-      <div className="md:hidden ">
-        <Sheet>
-          <SheetTrigger>
-            <MenuIcon className="rounded-lg hover:opacity-30 p-2" size={40} />
-          </SheetTrigger>
-          <SheetContent
-            side={"left"}
-            style={{
-              overflow: "visible",
-              overflowY: "auto",
-            }}
-          >
-            <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
-              <div>{menuOptions}</div>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+    <>
+      <div className="relative p-2 md:p-5 bg-slate-200 ">
+        <div className="md:hidden ">
+          <Sheet>
+            <SheetTrigger>
+              <MenuIcon className="rounded-lg hover:opacity-30 p-2" size={40} />
+            </SheetTrigger>
+            <SheetContent
+              side={"left"}
+              style={{
+                overflow: "visible",
+                overflowY: "auto",
+              }}
+            >
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+                <div>{menuOptions}</div>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
+        <div className="md:inline hidden">{menuOptions}</div>
+        <div
+          className="mt-5 flex flex-col md:max-w-36 space-y-4 p-4
+        absolute bottom-0 left-0 right-0
+        "
+        >
+          <div className="flex-1 text-center">
+            <Link href="/">
+              <Image
+                src="/NDocument.png"
+                alt="Logo"
+                width={120}
+                height={90}
+                className="align-middle"
+              />
+            </Link>
+          </div>
+          <div className="flex-1 text-center text-sm text-primary">
+            &copy; {new Date().getFullYear()} Developed by {""}
+            <Link
+              href="https://www.linkedin.com/in/mahmoudali01/"
+              about="_blank"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary font-semibold hover:underline"
+            >
+              Mahmoud Ali
+            </Link>
+          </div>
+        </div>
       </div>
-      <div
-        className="md:inline hidden 
-
-      "
-      >
-        {menuOptions}
-      </div>
-    </div>
+    </>
   );
 };
 
