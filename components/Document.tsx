@@ -11,6 +11,7 @@ import DeleteDocument from "./DeleteDocument";
 import InviteUser from "./InviteUser";
 import ManageUsers from "./ManageUsers";
 import Avatars from "./Avatars";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Document = ({ id }: { id: string }) => {
   const [title, setTitle] = useState("");
@@ -35,8 +36,11 @@ const Document = ({ id }: { id: string }) => {
   };
 
   return (
-    <div>
-      <div className="flex max-w-6xl mx-auto pb-5 justify-between">
+    <div className="max-w-5xl mx-auto ">
+      <div className="py-2 ">
+        <Breadcrumbs />
+      </div>
+      <div className="flex max-w-5xl mx-auto pb-5 justify-between">
         <form onSubmit={handleUpdate} className="flex flex-1 py-1  space-x-2">
           {/* update title ... */}
           <Input

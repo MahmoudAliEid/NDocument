@@ -12,7 +12,7 @@ import { Fragment } from "react";
 const Breadcrumbs = () => {
   const pathName = usePathname();
   const pathArray = pathName.split("/").filter(Boolean);
-  console.log(pathArray, "pathArray");
+
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -21,7 +21,6 @@ const Breadcrumbs = () => {
         </BreadcrumbItem>
         {pathArray.map((path, index) => {
           const href = `/${pathArray.slice(0, index + 1).join("/")}`;
-          console.log(href, "href");
           const isLast = index === pathArray.length - 1;
           return (
             <Fragment key={index}>

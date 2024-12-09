@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "A simple document editor with real-time collaboration , AI features",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

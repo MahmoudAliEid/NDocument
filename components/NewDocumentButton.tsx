@@ -19,7 +19,11 @@ const NewDocumentButton = () => {
   };
 
   return (
-    <Button onClick={handleCreateNewDocument} disabled={isPending}>
+    <Button
+      onClick={handleCreateNewDocument}
+      disabled={isPending}
+      className="py-5 bg-gradient-to-r from-primary via-blue-500 to-purple-500 animate-pulse"
+    >
       {isPending ? "Creating..." : "New Document"}
     </Button>
   );

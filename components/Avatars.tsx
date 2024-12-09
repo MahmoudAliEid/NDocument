@@ -16,9 +16,9 @@ const Avatars = () => {
   const allUsers = [self, ...others];
 
   return (
-    <div className="flex gap-2 items-center">
-      <p className="text-light text-sm">
-        {allUsers.length} {allUsers.length > 1 ? "Users" : "User"} currently
+    <div className="flex gap-2 items-center max-w-5xl">
+      <p className="text-light text-gray-500  text-sm">
+        {allUsers.length} {allUsers.length > 1 ? "Users" : "User"}
         editing this document
       </p>
       <div className="flex -space-x-5">
