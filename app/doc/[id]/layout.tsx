@@ -10,7 +10,7 @@ const DocLayout = async ({
   params: { id: string };
 }) => {
   auth.protect();
-  const { id } = await params;
+  const { id } = params;
   return <RoomProvider roomId={id}>{children}</RoomProvider>;
 };
 
