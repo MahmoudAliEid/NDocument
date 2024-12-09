@@ -7,10 +7,10 @@ const DocLayout = async ({
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) => {
   auth.protect();
-  const { id } = params;
+  const id = (await params).id;
   return <RoomProvider roomId={id}>{children}</RoomProvider>;
 };
 
