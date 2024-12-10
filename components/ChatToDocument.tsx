@@ -112,7 +112,7 @@ const ChatToDocument = ({ doc }: { doc: Y.Doc }) => {
             <div className="flex">
               <BotIcon className="w-10 flex-shrink-0" />
               <p className="font-bold">
-                GOOGLE{" "}
+                Gemini{" "}
                 {isPending ? (
                   <span className="font-bold text-transparent animate-pulse bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text">
                     {"is thinking..."}
@@ -134,13 +134,13 @@ const ChatToDocument = ({ doc }: { doc: Y.Doc }) => {
                 {/* Copy Button with dynamic icon */}
                 <CopyToClipboard text={summary} onCopy={handleCopy}>
                   <Button
-                    className="absolute -top-8 cursor-pointer right-1 p-2 text-sm text-white bg-gray-400 rounded hover:bg-gray-600"
+                    className=" fixed top-10 cursor-pointer right-2 p-2 text-sm text-white bg-gray-400 rounded hover:bg-gray-600"
                     title="Copy to clipboard"
                   >
                     {copied ? (
-                      <CheckCircle size={14} />
+                      <CheckCircle size={10} />
                     ) : (
-                      <Clipboard size={14} />
+                      <Clipboard size={10} />
                     )}
                   </Button>
                 </CopyToClipboard>

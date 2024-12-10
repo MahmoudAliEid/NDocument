@@ -67,7 +67,7 @@ const Editor = () => {
   }
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div>
       <div className="flex items-center justify-end mb-10 gap-2">
         {/* translation ai */}
         <TranslateDocument doc={doc} />

@@ -36,11 +36,11 @@ const Document = ({ id }: { id: string }) => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto ">
+    <div className="">
       <div className="py-2 ">
         <Breadcrumbs />
       </div>
-      <div className="flex max-w-5xl mx-auto pb-5 justify-between">
+      <div className="flex max-w-6xl mx-auto pb-5 justify-between">
         <form onSubmit={handleUpdate} className="flex flex-1 py-1  space-x-2">
           {/* update title ... */}
           <Input
