@@ -1,6 +1,8 @@
 {
   "name": "ndocument",
   "version": "0.1.0",
+  "description":"A simple document editor with real-time collaboration , AI features",
+  "developer":"Mahmoud Ali Eid",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
