@@ -18,8 +18,8 @@ const Avatars = () => {
   return (
     <div className="flex gap-2 items-center max-w-5xl">
       <p className="text-light text-gray-500  text-sm">
-        {allUsers.length} {allUsers.length > 1 ? "Users" : "User"}
-        editing this document
+        {allUsers.length} {allUsers.length > 1 ? "Users " : "User "}editing this
+        document
       </p>
       <div className="flex -space-x-5">
         {allUsers.map((user, i) => (
